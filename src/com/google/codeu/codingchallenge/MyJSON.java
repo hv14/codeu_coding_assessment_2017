@@ -14,9 +14,15 @@
 
 package com.google.codeu.codingchallenge;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 
 final class MyJSON implements JSON {
+
+  HashMap<String, String> strings = new HashMap<>();
+  HashMap<String, JSON> objects = new HashMap<>();
 
   @Override
   public JSON getObject(String name) {
@@ -26,7 +32,7 @@ final class MyJSON implements JSON {
 
   @Override
   public JSON setObject(String name, JSON value) {
-    // TODO: implement this
+    objects.put(name, value);
     return this;
   }
 
@@ -38,7 +44,7 @@ final class MyJSON implements JSON {
 
   @Override
   public JSON setString(String name, String value) {
-    // TODO: implement this
+    strings.put(name, value);
     return this;
   }
 
