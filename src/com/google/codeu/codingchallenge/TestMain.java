@@ -47,7 +47,7 @@ final class TestMain {
         final JSONParser parser = factory.parser();
         final JSON obj = parser.parse("{ \"name\":\"sam doe\" }");
 
-        Asserts.isEqual("sam doe", obj.getString("name"));
+        Asserts.isEqual("samdoe", obj.getString("name"));
      }
     });
 

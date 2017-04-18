@@ -15,19 +15,16 @@
 package com.google.codeu.codingchallenge;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.*;
 
 final class MyJSON implements JSON {
 
-  HashMap<String, String> strings = new HashMap<>();
-  HashMap<String, JSON> objects = new HashMap<>();
+  private HashMap<String, String> strings = new HashMap<>();
+  private HashMap<String, JSON> objects = new HashMap<>();
 
   @Override
   public JSON getObject(String name) {
-    // TODO: implement this
-    return null;
+    return objects.get(name);
   }
 
   @Override
@@ -38,8 +35,7 @@ final class MyJSON implements JSON {
 
   @Override
   public String getString(String name) {
-    // TODO: implement this
-    return null;
+    return strings.get(name);
   }
 
   @Override
@@ -50,11 +46,18 @@ final class MyJSON implements JSON {
 
   @Override
   public void getObjects(Collection<String> names) {
-    // TODO: implement this
+    Iterator it = objects.entrySet().iterator();
+    while (it.hasNext()) {
+      Map.Entry pair = (Map.Entry)it.next();
+      names.add(pair.getKey().toString());
+    }
   }
 
   @Override
   public void getStrings(Collection<String> names) {
-    // TODO: implement this
-  }
+    Iterator it = strings.entrySet().iterator();
+    while (it.hasNext()) {
+      Map.Entry pair = (Map.Entry)it.next();
+      names.add(pair.getKey().toString());
+    }  }
 }
